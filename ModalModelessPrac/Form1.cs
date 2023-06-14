@@ -12,9 +12,19 @@ namespace ModalModelessPrac
 {
     public partial class Form1 : Form
     {
+        class CustomForm : Form
+        {
+            public CustomForm()
+            {
+                this.Text = "제목 글자";
+
+            }
+        }
+
         public Form1()
         {
             InitializeComponent();
+            IsMdiContainer = true;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -33,5 +43,13 @@ namespace ModalModelessPrac
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            CustomForm form = new CustomForm();
+            //form.MdiParent = this;
+            form.Show();
+        }
+
     }
 }
